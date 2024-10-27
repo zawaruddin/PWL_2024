@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\JajalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::pattern('id', '[0-9]+');
+
+Route::get('/', function(){ // callback function
+    return 'testing 124';
 });
 
+Route::get('/home', function(){ // callback function
+    return 'home 124';
+});
 
-Route::get('/test', [TestController::class, 'index']);
+Route::get('/turu', [JajalController::class, 'turu']);
+
+Route::get('/tangi/samsul', [JajalController::class, 'samsul']);
+Route::get('/tangi/{nama}/{detail}', [JajalController::class, 'tangi']);
+
+
+
+
+
+// Route::get('/coba', [CobaController::class, 'index']);
+// Route::get('/about', [CobaController::class, 'about']);
+// Route::get('/hello/{nama}', [CobaController::class, 'hello']);
